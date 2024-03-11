@@ -38,6 +38,8 @@ h1 span{
     width: 100%;
     cursor: pointer;
     transition: 1s;
+    /*redondes de los bordes*/
+    border-radius:  25px;
 }
 .img-gallery img:hover{
     transform: scale(1.2);
