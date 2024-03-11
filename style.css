@@ -39,3 +39,21 @@ h1 span{
     cursor: pointer;
     transition: 1s;
 }
+.img-gallery img:hover{
+    transform: scale(1.2);
+}
+.centrar_texto{
+    text-align: center;
+}
+
+@media screen and (max-width:400px){
+    h1{
+        text-decoration: underline;
+    }
+    h1::before{
+        display: none;
+    }
+    h1 span{
+        padding: 0;
+    }
+}
