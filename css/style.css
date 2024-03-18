@@ -60,3 +60,12 @@ h1 span{
         padding: 0;
     }
 }
+
+/* Establecer un tamaño minimo para las imagenes 
+    desde desde 300px para arriba el tamaño de las imagenes de las cards se vuelve igual
+*/
+.card-img-top{
+    min-width: 100%;
+    min-height: 300px; /* o el valor que se desea*/
+    object-fit: cover; /* para que la imagen cubra el espacio sin deformarse*/
+}
