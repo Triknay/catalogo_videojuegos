@@ -7,3 +7,13 @@
     min-height: 300px; /* o el valor que se desea*/
     object-fit: cover; /* para que la imagen cubra el espacio sin deformarse*/
 }
+
+
+.custom-card-efect{
+    width: 100%;
+    cursor: pointer;
+    transition: 1s;
+}
+.custom-card-efect:hover{
+    transform: scale(1.2);
+}
