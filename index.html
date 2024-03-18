@@ -23,6 +23,9 @@
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="#">Inicio</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#" data-bs-toggle="modal" data-bs-target="#registroModal">Registro</a>
+          </li>
           <!-- <li class="nav-item">
                 <a class="nav-link" href="#">Link</a>
               </li>
@@ -50,6 +53,61 @@
       </div>
     </div>
   </nav>
+
+  <div class="modal fade" id="registroModal" tabindex="-1" aria-labelledby="registroModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="registroModalLabel">Registro</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <!-- Contenido del formulario de registro -->
+          <form>
+            <!-- Campos del formulario -->
+            <div class="mb-3">
+              <label for="nombre" class="form-label">Nombre Completo</label>
+              <input type="text" class="form-control" placeholder="Su nombre y los dos apellidos" id="nombre">
+            </div>
+
+            <div class="mb-3">
+              <label for="nombre-usuario" class="form-label">Nombre de Usuario</label>
+              <input type="text" class="form-control" placeholder="Ingrese un nombre de usuario" id="nombre-usuario">
+            </div>
+
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" class="form-control" placeholder="Ingrese su Email" id="email">
+            </div>
+
+            <div class="mb-3">
+              <label for="pass" class="form-label">Contraseña</label>
+              <input type="text" class="form-control" placeholder="Ingrese su contraseña" id="pass">
+            </div>
+
+            <div class="mb-3">
+              <label for="pass-confirmar" class="form-label">Confirmse su contraseña</label>
+              <input type="text" class="form-control" placeholder="*******" id="pass-confirmar">
+            </div>
+
+            <div class="mb-3">
+              <label for="" class="form-label">Ingrese su fecha de nacimiento</label>
+              <input type="date" class="form-control" name="fecha" id="">
+            </div>
+
+            <div class="mb-3">
+              <label for="">Dirección de despacho</label>
+              <input type="text" class="form-control" placeholder="Ingrese su dirección de despacho" id="despacho">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-primary">Registrarse</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <div class="container mt-5">
     <div class="row">

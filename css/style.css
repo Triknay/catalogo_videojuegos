@@ -9,11 +9,14 @@
 }
 
 
+
+/* Efecto de acercar la img cuando pasa el mouse por encima*/
+.custom-card-efect:hover{
+    transform: scale(1.2);
+}
+/* hace más suave el efecto de arriba*/
 .custom-card-efect{
     width: 100%;
     cursor: pointer;
     transition: 1s;
-}
-.custom-card-efect:hover{
-    transform: scale(1.2);
 }
