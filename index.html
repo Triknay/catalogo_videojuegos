@@ -210,18 +210,34 @@
           errores = true;
         }
 
-        if ($('#nombre-usuario').val() === '') {
+        if ($('#nombre-usuario').val() == '') {
           $('#nombre-usuario-error').text('Por favor, ingrese un usuario')
           errores = true;
         }
 
 
-        if ($('#pass').val() === '') {
+        //validación de contraseña
+        var password = $('#pass').val();
+        if(password === ''){
+          $('#pass-error').text('por favor, ingrese una contraseña');
+          errores = true;
+        }else{
+          // expresión regular para verificar al menos una mayúscula y un número
+          var regex = /^(?=.*[A-Z])(?=.*\d).+$/;
+          if(!regex.test(password)){
+            $('#pass-error').text('La contraseña debe tener al menos una mayúscula y un número');
+            errores = true;
+          }
+        }
+
+        /*  validación de que la contraseña no esté vacia
+        if ($('#pass').val() == '') {
           $('#pass-error').text('Por favor, ingrese una contraseña')
           errores = true;
         }
+        */
 
-        if ($('#pass-confirmar').val() === '') {
+        if ($('#pass-confirmar').val() == '') {
           $('#pass-confirmar-error').text('Por favor, ingrese la misma contraseña')
           errores = true;
         } else{
@@ -231,7 +247,7 @@
           }
         }
 
-        if ($('#fecha').val() === '') {
+        if ($('#fecha').val() == '') {
           $('#fecha-error').text('Por favor, ingrese una fecha')
           errores = true;
         }
