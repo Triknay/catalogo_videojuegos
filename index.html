@@ -222,6 +222,10 @@
         if(password === ''){
           $('#pass-error').text('por favor, ingrese una contraseña');
           errores = true;
+        //validación que la contraseña tenga entre 6 a 18 caracteres
+        }else if(password.length <6 || password.length >= 18){
+          $('#pass-error').text('La contraseña debe tener entre 6 a 18 caracteres')
+          errores = true;
         }else{
           // expresión regular para verificar al menos una mayúscula y un número
           var regex = /^(?=.*[A-Z])(?=.*\d).+$/;
