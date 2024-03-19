@@ -195,6 +195,7 @@
         console.log($('#pass-confirmar').val());
         console.log($('#fecha').val());
         console.log($('#email').val());
+        console.log(edad);
 
 
         $('#nombre-error').text('');
@@ -247,7 +248,7 @@
           }
         }
 
-        //validación de fecha de nacimiento mayor a 13 años
+        //validación de fecha de nacimiento mayor igual a 13 años
         var fechaNacimiento = new Date($('#fecha').val());
         if ($('#fecha').val() == '') {
           $('#fecha-error').text('Por favor, ingrese una fecha')
@@ -259,7 +260,7 @@
           if(mes <0 || (mes === 0 && hoy.getDate() < fechaNacimiento.getDate())){
             edad--;
           }
-          if(edad<13){
+          if(edad>=13){
             $('#fecha-error').text('debe ser mayor de 13 años');
             errores = true;
           }
