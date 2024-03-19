@@ -247,9 +247,22 @@
           }
         }
 
+        //validación de fecha de nacimiento mayor a 13 años
+        var fechaNacimiento = new Date($('#fecha').val());
         if ($('#fecha').val() == '') {
           $('#fecha-error').text('Por favor, ingrese una fecha')
           errores = true;
+        }else{
+          var hoy = new Date();
+          var edad = hoy.getFullYear() - fechaNacimiento.getFullYear();
+          var mes = hoy.getMonth() - fechaNacimiento.getMonth();
+          if(mes <0 || (mes === 0 && hoy.getDate() < fechaNacimiento.getDate())){
+            edad--;
+          }
+          if(edad<13){
+            $('#fecha-error').text('debe ser mayor de 13 años');
+            errores = true;
+          }
         }
 
         /*Se puede validar igualmente que no hayan campos vacios en el correo así
