@@ -64,17 +64,19 @@
         </div>
         <div class="modal-body">
           <!-- Contenido del formulario de registro -->
-          <form id="formulario-registro">
+          <form id="formulario-registro" method="GET" novalidate>
             <!-- Campos del formulario -->
             <div class="mb-3">
               <label for="nombre" class="form-label">Nombre Completo</label>
-              <input type="text"  name="nombre" class="form-control" placeholder="Su nombre y los dos apellidos" id="nombre">
+              <input type="text" name="nombre" class="form-control" placeholder="Su nombre y los dos apellidos"
+                id="nombre">
               <small class="text-danger" id="nombre-error"></small>
             </div>
 
             <div class="mb-3">
               <label for="nombre-usuario" class="form-label">Nombre de Usuario</label>
-              <input type="text" name="nombre-usuario" class="form-control" placeholder="Ingrese un nombre de usuario" id="nombre-usuario">
+              <input type="text" name="nombre-usuario" class="form-control" placeholder="Ingrese un nombre de usuario"
+                id="nombre-usuario">
               <small class="text-danger" id="nombre-usuario-error"></small>
             </div>
 
@@ -104,7 +106,8 @@
 
             <div class="mb-3">
               <label for="">Dirección de despacho</label>
-              <input type="text" name="" class="form-control" placeholder="Ingrese su dirección de despacho" id="despacho">
+              <input type="text" name="" class="form-control" placeholder="Ingrese su dirección de despacho"
+                id="despacho">
             </div>
 
             <div>
@@ -154,7 +157,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
-  
+
   <script src="js/jquery.js"></script>
 
   <script>
@@ -176,52 +179,84 @@
     */
     <!-- Validaciones con jquery-->
 
-    $(document).ready(function(){
-      $('#formulario-registro').submit(function(event){
-          event.preventDefault();
+    $(document).ready(function () {
+      $('#formulario-registro').submit(function (event) {
+        event.preventDefault();
 
-          console.log($('#nombre').val());
-          console.log($('#nombre-usuario').val());
-          console.log($('#pass').val());
-          console.log($('#pass-confirmar').val());
-          console.log($('#fecha').val());
-          console.log($('#email').val());
+        // Inicializamos la variable para rastrear errores
+        var errores = false;
+
+        /*// Limpiamos todos los mensajes de error repetido?
+        $('.error').text('');*/
+
+        console.log($('#nombre').val());
+        console.log($('#nombre-usuario').val());
+        console.log($('#pass').val());
+        console.log($('#pass-confirmar').val());
+        console.log($('#fecha').val());
+        console.log($('#email').val());
 
 
-          $('#nombre-error').text('');
-          $('#nombre-usuario-error').text('');
-          $('#email-error').text('');
-          $('#pass-error').text('');
-          $('#pass-confirmar-error').text('');
-          $('#fecha-error').text('');
-          $('#despacho-error').text('');
+        $('#nombre-error').text('');
+        $('#nombre-usuario-error').text('');
+        $('#email-error').text('');
+        $('#pass-error').text('');
+        $('#pass-confirmar-error').text('');
+        $('#fecha-error').text('');
+        $('#despacho-error').text('');
 
-          if($('#nombre').val() === ''){
-              $('#nombre-error').text('Por favor, ingrese un nombre')
+        if ($('#nombre').val() === '') {
+          $('#nombre-error').text('Por favor, ingrese un nombre')
+          errores = true;
+        }
+
+        if ($('#nombre-usuario').val() === '') {
+          $('#nombre-usuario-error').text('Por favor, ingrese un usuario')
+          errores = true;
+        }
+
+
+        if ($('#pass').val() === '') {
+          $('#pass-error').text('Por favor, ingrese una contraseña')
+          errores = true;
+        }
+
+        if ($('#pass-confirmar').val() === '') {
+          $('#pass-confirmar-error').text('Por favor, ingrese una contraseña')
+          errores = true;
+        }
+
+        if ($('#fecha').val() === '') {
+          $('#fecha-error').text('Por favor, ingrese una fecha')
+          errores = true;
+        }
+
+        /*Se puede validar igualmente que no hayan campos vacios en el correo así
+        if($('#email').val() === ''){
+            $('#email-error').text('Por favor, ingrese un email')
+            errores = true;
+        }
+        */
+
+        // validación de formato email con expresión regular 
+        var email = $('#email').val();
+        if (email === '') {
+          $('#email-error').text('Por favor, ingrese un email válido');
+          errores = true;
+        } else {
+          var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (!emailRegex.test(email)) {
+            $('#email-error').text('por favor, ingrese un email valido');
+            errores = true;
           }
+        }
 
-          if($('#nombre-usuario').val() === ''){
-              $('#nombre-usuario-error').text('Por favor, ingrese un usuario')
-          }
+        // Si hay errores, no se envía el formulario
+        if (errores) {
+          return;
+        }
 
-
-          if($('#pass').val() === ''){
-              $('#pass-error').text('Por favor, ingrese una contraseña')
-          }
-
-          if($('#pass-confirmar').val() === ''){
-              $('#pass-confirmar-error').text('Por favor, ingrese una contraseña')
-          }
-
-          if($('#fecha').val() === ''){
-              $('#fecha-error').text('Por favor, ingrese una fecha')
-          }
-
-          if($('#email').val() === ''){
-              $('#email-error').text('Por favor, ingrese un email')
-              return;
-          }
-          this.submit();
+        this.submit();
       });
     });
 
