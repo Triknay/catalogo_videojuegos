@@ -113,7 +113,7 @@
             <div>
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
               <button type="submit" class="btn btn-primary">Registrarse</button>
-              <button type="reset" class="btn btn-primary">Limpiar</button>
+              <button type="reset" id="limpiar-formulario" class="btn btn-primary">Limpiar</button>
             </div>
 
           </form>
@@ -161,23 +161,15 @@
   <script src="js/jquery.js"></script>
 
   <script>
-    /*+const form = document.getElementById('formulario-registro');
-    form.addEventListener('submit', function (event) {
-      event.preventDefault();
-
-      alert('El formulario se ha enviado');
-
-      form.submit();
-    }); */
-
-    /*form.querySelector('button[type="reset"]').addEventListener('click', function(event) {
-      event.preventDefault();
-
-      alert('Limpiando el formulario...');
-      form.reset();
-    });
-    */
     <!-- Validaciones con jquery-->
+    $(document).ready(function(){
+    // Función para limpiar el formulario
+    $('#limpiar-formulario').click(function(){
+        $('#formulario-registro')[0].reset(); // Resetea el formulario
+        $('.error').text(''); // Limpia los mensajes de error
+    });
+});
+
 
     $(document).ready(function () {
       $('#formulario-registro').submit(function (event) {
@@ -185,18 +177,6 @@
 
         // Inicializamos la variable para rastrear errores
         var errores = false;
-
-        /*// Limpiamos todos los mensajes de error repetido?
-        $('.error').text('');*/
-
-        console.log($('#nombre').val());
-        console.log($('#nombre-usuario').val());
-        console.log($('#pass').val());
-        console.log($('#pass-confirmar').val());
-        console.log($('#fecha').val());
-        console.log($('#email').val());
-        console.log(edad);
-
 
         $('#nombre-error').text('');
         $('#nombre-usuario-error').text('');
