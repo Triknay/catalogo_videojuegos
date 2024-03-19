@@ -93,7 +93,7 @@
 
             <div class="mb-3">
               <label for="" class="form-label">Ingrese su fecha de nacimiento</label>
-              <input type="date" class="form-control" name="fecha" id="">
+              <input type="date" class="form-control" name="fecha" id="fecha">
             </div>
 
             <div class="mb-3">
@@ -148,6 +148,8 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
+  
+  <script src="js/jquery.js"></script>
 
   <script>
     const form = document.getElementById('formulario-registro');
@@ -164,6 +166,66 @@
 
       alert('Limpiando el formulario...');
       form.reset();
+    });
+
+    <!-- Validaciones con jquery-->
+
+    $(document).ready(function(){
+      $('#formulario-regsitro').submit(function(event){
+          event.preventDefault();
+
+          $('nombre-error').text('')
+          $('nombre-usuario-error').text('')
+          $('email-error').text('')
+          $('pass-error').text('')
+          $('pass-confirmar-error').text('')
+          $('fecha-error').text('')
+          $('despacho-error').text('')
+
+          if($(nombre).val() === ''){
+              $('#nombre-error').text('Por favor, ingrese un nombre')
+              return;
+          }
+          this.submit();
+
+          if($(nombre-usuario).val() === ''){
+              $('#nombre-usuario-error').text('Por favor, ingrese un usuario')
+              return;
+          }
+          this.submit();
+
+
+          if($(pass).val() === ''){
+              $('#pass-error').text('Por favor, ingrese una contraseña')
+              return;
+          }
+          this.submit();
+
+          if($(pass-confirmar).val() === ''){
+              $('#pass-confirmar-error').text('Por favor, ingrese una contraseña')
+              return;
+          }
+          this.submit();
+
+          if($(fecha).val() === ''){
+              $('#fecha-error').text('Por favor, ingrese una fecha')
+              return;
+          }
+          this.submit();
+
+          if($(email).val() === ''){
+              $('#email-error').text('Por favor, ingrese un email')
+              return;
+          }
+          this.submit();
+
+          if($(pass).val() !== $(pass-confirmar).val() ){
+              $('#email-error').text('Por favor, ingrese un email')
+              return;
+          }
+          this.submit();
+
+      });
     });
 
   </script>
