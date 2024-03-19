@@ -222,8 +222,13 @@
         }
 
         if ($('#pass-confirmar').val() === '') {
-          $('#pass-confirmar-error').text('Por favor, ingrese una contraseña')
+          $('#pass-confirmar-error').text('Por favor, ingrese la misma contraseña')
           errores = true;
+        } else{
+          if($('#pass').val() != $('#pass-confirmar').val()){
+            $('#pass-confirmar-error').text('Por favor, ingrese la misma contraseña')
+            errores = true;
+          }
         }
 
         if ($('#fecha').val() === '') {
