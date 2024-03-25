@@ -8,8 +8,6 @@
     object-fit: cover; /* para que la imagen cubra el espacio sin deformarse*/
 }
 
-
-
 /* Efecto de acercar la img cuando pasa el mouse por encima*/
 .custom-card-efect:hover{
     transform: scale(1.2);
